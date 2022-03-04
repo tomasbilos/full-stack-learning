@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { fromEvent, Subject } from 'rxjs';
 
 @Component({
   selector: 'full-stack-learning-observables',
@@ -15,6 +15,13 @@ export class ObservablesComponent implements OnInit {
     this.subject.subscribe((x) => {
       console.log('Subject', x);
     });
+
+    const button = document.getElementById('ObservableButton');
+    if (button) {
+      console.log('Got button');
+      const observable = fromEvent(button, 'click');
+      observable.subscribe(() => console.log('Observable buton'));
+    }
   }
 
   pushNextValue() {
@@ -25,5 +32,9 @@ export class ObservablesComponent implements OnInit {
 
       this.nextValue = '';
     }
+  }
+
+  subscribeToButton() {
+    return;
   }
 }
