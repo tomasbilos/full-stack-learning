@@ -1,0 +1,14 @@
+<p>observables works!</p>
+<div>
+  <div>
+    <input [(ngModel)]="nextValue" type="text" placeholder="Next value" />
+    <button (click)="pushNextValue()">Push</button>
+  </div>
+</div>
+
+<div>
+  <p>Values:</p>
+  <ul>
+    <li *ngFor="let value of values">{{ value }}</li>
+  </ul>
+</div>

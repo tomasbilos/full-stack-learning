@@ -1,15 +1,20 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
-import { RouterModule } from '@angular/router';
+import { ObservablesComponent } from './components/observables/observables.component';
+
+const routes: Routes = [
+  { path: 'observables', component: ObservablesComponent },
+];
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent],
+  declarations: [AppComponent, ObservablesComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
+    FormsModule,
+    RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [],
   bootstrap: [AppComponent],
